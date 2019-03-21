@@ -25,7 +25,6 @@ namespace StatInkClientDotNet
             var url = $"https://stat.ink/api/v2/user-battle?count=50&order=asc&newer_than={id}";
             var result = await httpClient.GetStringAsync(url);
 
-
             return JsonConvert.DeserializeObject<BattleData[]>(result);
         }
     }

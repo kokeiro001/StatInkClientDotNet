@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace StatInkClientDotNet
@@ -19,8 +20,9 @@ namespace StatInkClientDotNet
             statInkClient.Dispose();
         }
 
-        public async Task DownloadAllData(int startSplatInkBattleId, string outputDirectory)
+        public async Task DownloadAllData(int startSplatInkBattleId, string outputDirectory, int intervalSecond = 5)
         {
+            intervalSecond = Math.Max(intervalSecond, 1);
             var id = startSplatInkBattleId;
 
             while (true)
@@ -30,14 +32,19 @@ namespace StatInkClientDotNet
                 foreach (var battleData in battleDataArray)
                 {
                     var tmp = JsonConvert.SerializeObject(battleData, Formatting.Indented);
-                    File.WriteAllText(Path.Combine(outputDirectory, battleData.splatnet_number + ".json"), tmp);
+                    File.WriteAllText(Path.Combine(outputDirectory, $"{battleData.SplatnetNumber}.json"), tmp);
                 }
 
                 if (battleDataArray.Length == 0)
                 {
                     break;
                 }
-                await Task.Delay(TimeSpan.FromSeconds(5));
+
+                id = battleDataArray
+                    .Select(x => x.Id)
+                    .First();
+
+                await Task.Delay(TimeSpan.FromSeconds(intervalSecond));
             }
         }
     }
