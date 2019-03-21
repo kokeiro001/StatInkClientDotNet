@@ -9,10 +9,16 @@ namespace StatInkClientDotNet
     public class StatInkClient : IDisposable
     {
         private readonly HttpClient httpClient = new HttpClient();
+        private readonly JsonSerializerSettings jsonSerializerSettings;
 
         public StatInkClient(string bearerToken)
         {
             httpClient.DefaultRequestHeaders.Add("Authorization", bearerToken);
+
+            jsonSerializerSettings = new JsonSerializerSettings
+            {
+                ContractResolver = new SnakeCaseContractResolver()
+            };
         }
 
         public void Dispose()
@@ -25,7 +31,7 @@ namespace StatInkClientDotNet
             var url = $"https://stat.ink/api/v2/user-battle?count=50&order=asc&newer_than={id}";
             var result = await httpClient.GetStringAsync(url);
 
-            return JsonConvert.DeserializeObject<BattleData[]>(result);
+            return JsonConvert.DeserializeObject<BattleData[]>(result, jsonSerializerSettings);
         }
     }
 }
