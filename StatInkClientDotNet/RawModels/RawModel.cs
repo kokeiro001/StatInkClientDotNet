@@ -108,9 +108,9 @@ namespace StatInkClientDotNet.RawModels
         public object Note { get; set; }
         public string GameVersion { get; set; }
         public object NawabariBonus { get; set; }
-        public StartAt StartAt { get; set; }
-        public EndAt EndAt { get; set; }
-        public RegisterAt RegisterAt { get; set; }
+        public TimeInfo StartAt { get; set; }
+        public TimeInfo EndAt { get; set; }
+        public TimeInfo RegisterAt { get; set; }
     }
 
     public class Clothing
@@ -120,7 +120,7 @@ namespace StatInkClientDotNet.RawModels
         public SecondaryAbilities[] SecondaryAbilities { get; set; }
     }
 
-    public class EndAt
+    public class TimeInfo
     {
         public int Time { get; set; }
         public DateTime Iso8601 { get; set; }
@@ -156,11 +156,6 @@ namespace StatInkClientDotNet.RawModels
         public PrimaryAbility PrimaryAbility { get; set; }
         public SecondaryAbilities[] SecondaryAbilities { get; set; }
     }
-    public class JoinAt
-    {
-        public int Time { get; set; }
-        public DateTime Iso8601 { get; set; }
-    }
 
     public class Lobby
     {
@@ -175,7 +170,7 @@ namespace StatInkClientDotNet.RawModels
         public Name Name { get; set; }
         public ShortName ShortName { get; set; }
         public int? Area { get; set; }
-        public ReleaseAt ReleaseAt { get; set; }
+        public TimeInfo ReleaseAt { get; set; }
     }
 
     public class Mode
@@ -253,18 +248,6 @@ namespace StatInkClientDotNet.RawModels
         public Name Name { get; set; }
     }
 
-    public class RegisterAt
-    {
-        public int Time { get; set; }
-        public DateTime Iso8601 { get; set; }
-    }
-
-    public class ReleaseAt
-    {
-        public int Time { get; set; }
-        public DateTime Iso8601 { get; set; }
-    }
-
     public class Rootobject
     {
         public BattleData[] Property1 { get; set; }
@@ -316,12 +299,6 @@ namespace StatInkClientDotNet.RawModels
         public Name Name { get; set; }
     }
 
-    public class StartAt
-    {
-        public int Time { get; set; }
-        public DateTime Iso8601 { get; set; }
-    }
-
     public class Stats
     {
         public object V1 { get; set; }
@@ -359,7 +336,7 @@ namespace StatInkClientDotNet.RawModels
         public string Name { get; set; }
         public string ScreenName { get; set; }
         public string Url { get; set; }
-        public JoinAt JoinAt { get; set; }
+        public TimeInfo JoinAt { get; set; }
         public Profile Profile { get; set; }
         public object Stat { get; set; }
         public Stats Stats { get; set; }
