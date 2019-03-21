@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace StatInkClientDotNet.RawModels
 {
@@ -181,16 +182,37 @@ namespace StatInkClientDotNet.RawModels
 
     public class Name
     {
+        [JsonProperty("ja_jp")]
         public string JaJP { get; set; }
+
+        [JsonProperty("en_us")]
         public string EnUS { get; set; }
+
+        [JsonProperty("en_gb")]
         public string EnGB { get; set; }
+
+        [JsonProperty("es_es")]
         public string EsES { get; set; }
+
+        [JsonProperty("es_mx")]
         public string EsMX { get; set; }
+
+        [JsonProperty("fr_fr")]
         public string FrFR { get; set; }
+
+        [JsonProperty("fr_ca")]
         public string FrCA { get; set; }
+
+        [JsonProperty("de_de")]
         public string DeDE { get; set; }
+
+        [JsonProperty("it_it")]
         public string ItIT { get; set; }
+
+        [JsonProperty("nl_nl")]
         public string NlNL { get; set; }
+
+        [JsonProperty("ru_ru")]
         public string RuRU { get; set; }
     }
 
