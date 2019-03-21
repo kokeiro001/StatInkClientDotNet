@@ -39,7 +39,7 @@ namespace StatInkClientDotNet.RawModels
         public Weapon Weapon { get; set; }
         public Rank Rank { get; set; }
         public object RankExp { get; set; }
-        public Rank_After RankAfter { get; set; }
+        public RankAfter RankAfter { get; set; }
         public object RankExpAfter { get; set; }
         public float? XPower { get; set; }
         public float? XPowerAfter { get; set; }
@@ -108,19 +108,19 @@ namespace StatInkClientDotNet.RawModels
         public object Note { get; set; }
         public string GameVersion { get; set; }
         public object NawabariBonus { get; set; }
-        public Start_At StartAt { get; set; }
-        public End_At EndAt { get; set; }
-        public Register_At RegisterAt { get; set; }
+        public StartAt StartAt { get; set; }
+        public EndAt EndAt { get; set; }
+        public RegisterAt RegisterAt { get; set; }
     }
 
     public class Clothing
     {
         public Gear Gear { get; set; }
-        public Primary_Ability PrimaryAbility { get; set; }
-        public Secondary_Abilities[] SecondaryAbilities { get; set; }
+        public PrimaryAbility PrimaryAbility { get; set; }
+        public SecondaryAbilities[] SecondaryAbilities { get; set; }
     }
 
-    public class End_At
+    public class EndAt
     {
         public int Time { get; set; }
         public DateTime Iso8601 { get; set; }
@@ -132,7 +132,7 @@ namespace StatInkClientDotNet.RawModels
         public GearType Type { get; set; }
         public Brand Brand { get; set; }
         public Name Name { get; set; }
-        public Primary_Ability PrimaryAbility { get; set; }
+        public PrimaryAbility PrimaryAbility { get; set; }
         public int Splatnet { get; set; }
     }
 
@@ -153,10 +153,10 @@ namespace StatInkClientDotNet.RawModels
     public class Headgear
     {
         public Gear Gear { get; set; }
-        public Primary_Ability PrimaryAbility { get; set; }
-        public Secondary_Abilities[] SecondaryAbilities { get; set; }
+        public PrimaryAbility PrimaryAbility { get; set; }
+        public SecondaryAbilities[] SecondaryAbilities { get; set; }
     }
-    public class Join_At
+    public class JoinAt
     {
         public int Time { get; set; }
         public DateTime Iso8601 { get; set; }
@@ -173,9 +173,9 @@ namespace StatInkClientDotNet.RawModels
         public string Key { get; set; }
         public int Splatnet { get; set; }
         public Name Name { get; set; }
-        public Short_Name ShortName { get; set; }
+        public ShortName ShortName { get; set; }
         public int? Area { get; set; }
-        public Release_At ReleaseAt { get; set; }
+        public ReleaseAt ReleaseAt { get; set; }
     }
 
     public class Mode
@@ -223,7 +223,7 @@ namespace StatInkClientDotNet.RawModels
         public string Icon { get; set; }
     }
 
-    public class Primary_Ability
+    public class PrimaryAbility
     {
         public string Key { get; set; }
         public Name Name { get; set; }
@@ -246,20 +246,20 @@ namespace StatInkClientDotNet.RawModels
         public Name Name { get; set; }
     }
 
-    public class Rank_After
+    public class RankAfter
     {
         public string Key { get; set; }
         public Zone Zone { get; set; }
         public Name Name { get; set; }
     }
 
-    public class Register_At
+    public class RegisterAt
     {
         public int Time { get; set; }
         public DateTime Iso8601 { get; set; }
     }
 
-    public class Release_At
+    public class ReleaseAt
     {
         public int Time { get; set; }
         public DateTime Iso8601 { get; set; }
@@ -276,7 +276,7 @@ namespace StatInkClientDotNet.RawModels
         public Name Name { get; set; }
     }
 
-    public class Secondary_Abilities
+    public class SecondaryAbilities
     {
         public string Key { get; set; }
         public Name Name { get; set; }
@@ -285,11 +285,11 @@ namespace StatInkClientDotNet.RawModels
     public class Shoes
     {
         public Gear Gear { get; set; }
-        public Primary_Ability PrimaryAbility { get; set; }
-        public Secondary_Abilities[] SecondaryAbilities { get; set; }
+        public PrimaryAbility PrimaryAbility { get; set; }
+        public SecondaryAbilities[] SecondaryAbilities { get; set; }
     }
 
-    public class Short_Name
+    public class ShortName
     {
         public string JaJP { get; set; }
         public string EnUS { get; set; }
@@ -316,7 +316,7 @@ namespace StatInkClientDotNet.RawModels
         public Name Name { get; set; }
     }
 
-    public class Start_At
+    public class StartAt
     {
         public int Time { get; set; }
         public DateTime Iso8601 { get; set; }
@@ -359,7 +359,7 @@ namespace StatInkClientDotNet.RawModels
         public string Name { get; set; }
         public string ScreenName { get; set; }
         public string Url { get; set; }
-        public Join_At JoinAt { get; set; }
+        public JoinAt JoinAt { get; set; }
         public Profile Profile { get; set; }
         public object Stat { get; set; }
         public Stats Stats { get; set; }
